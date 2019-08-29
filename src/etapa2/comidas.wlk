@@ -7,23 +7,55 @@ object mondongo {
 	method energiaPorGramo() { return 100 }
 }
 
-// comida que esta fallada
 object bigMac {
-	method energiaQueOtorga() { return 2 }
+	method energiaPorGramo() { return 2 }
 }
 
-/*
- * el alcaucil da 20 joules por gramo
- */ 
 object alcaucil {
-	// completar
-}
+	method energiaPorGramo() {return 20}
+	}
 
-/*
- * el sorgo da 9 joules por gramo
- */ 
 object sorgo {
-	// completar
+	method energiaPorGramo() {return 9}
 }
 
-// despues, agregar mijo y canelones
+object mijo{
+	var mojado = false
+	var energiaBase = 20
+	var energiaModificada 
+	method mojarse() { mojado = true }
+	method secarse() { mojado = false }
+	method energiaPorGramo(){
+		energiaModificada = energiaBase
+		if (mojado)
+			{
+				energiaModificada -= 5
+			}
+		
+			return energiaModificada
+	}
+}
+
+object canelones{
+	var salsa = false
+	var queso = false
+	var energiaBase = 20
+	var energiaModificada
+	method ponerQueso(){ queso = true } 
+	method ponerSalsa(){ salsa = true }
+	method sacarQueso(){ queso = false }
+	method sacarSalsa(){ salsa = false }
+	method energiaPorGramo(){
+		energiaModificada = energiaBase
+		if(queso)
+		{
+			energiaModificada += 7
+		}
+		if(salsa)
+		{
+			energiaModificada += 25
+		}
+		return energiaModificada
+
+	}
+}
